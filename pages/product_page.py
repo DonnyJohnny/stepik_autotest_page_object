@@ -9,11 +9,18 @@ class ProductPage(BasePage):
         add_button = self.browser.find_element(*ProductPageLocators.ADD_BUTTON)
         add_button.click()
 
-    def should_be_alert_success(self):
-        alert = self.browser.find_element(*ProductPageLocators.ALERT_SUCCESS)
+    def should_be_success_message(self):
+        alert = self.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE)
         product = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME)
 
-        assert alert.text == product.text, "Product was not added to basket"
+        assert alert.text == product.text, "Success message is not presented"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+        "Success message is presented, but should not be"
+
+    def should_dissapeared(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is not dissappeared"
 
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
