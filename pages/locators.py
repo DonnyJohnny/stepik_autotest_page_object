@@ -12,14 +12,16 @@ class BasketPageLocators():
     PRODUCTS = (By.CSS_SELECTOR, "form#basket_formset")
 
 class LoginPageLocators():
-    LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
-    REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
     EMAIL_INPUT = (By.CSS_SELECTOR, "form#register_form input#id_registration-email")
-    PASSWORD_INPUT = (By.CSS_SELECTOR, "form#register_form input#id_registration-password1")
     CONFIRM_PASSWORD_INPUT = (By.CSS_SELECTOR, "form#register_form input#id_registration-password2")
+    LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
+    PASSWORD_INPUT = (By.CSS_SELECTOR, "form#register_form input#id_registration-password1")
     REGISTER_BUTTON = (By.CSS_SELECTOR, "form#register_form>button")
+    REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")    
 
 class ProductPageLocators():
-    ADD_BUTTON = (By.CSS_SELECTOR, ".btn-add-to-basket")
-    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "div.alert-success strong")
+    ADD_BUTTON = (By.CSS_SELECTOR, ".btn-add-to-basket")    
     PRODUCT_NAME = (By.CSS_SELECTOR, "div.product_main>h1")
+    PRODUCT_PRICE = (By.CSS_SELECTOR, "div.product_main>p.price_color")
+    PRICE_IN_BASCET = (By.CSS_SELECTOR, "div.alert-info strong")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "div.alert-success strong")

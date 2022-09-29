@@ -9,11 +9,17 @@ class ProductPage(BasePage):
         add_button = self.browser.find_element(*ProductPageLocators.ADD_BUTTON)
         add_button.click()
 
-    def should_be_success_message(self):
+    def should_be_correct_price(self):
+        product_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE)
+        buscet_price = self.browser.find_element(*ProductPageLocators.PRICE_IN_BASCET)
+
+        assert product_price.text == buscet_price.text, "Price in the basket is different from the price of product"
+
+    def should_be_correct_success_message(self):
         alert = self.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE)
         product = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME)
 
-        assert alert.text == product.text, "Success message is not presented"
+        assert alert.text == product.text, "Product name in the basket is different from added product name"
 
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
